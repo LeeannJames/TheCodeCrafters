@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>WELCOME TO OUR HOME PAGE</h1>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section id="features">
+        <h2>FEATURES</h2>
+        <div class="feature" id="Profile Page">
+            <h3>PROFILE PAGE</h3>
+            <button onclick="showFeatureDetail('Profile Page')">More Info</button>
+        </div>
+        <div class="feature" id="Group Page">
+            <h3>GROUP PAGE</h3>
+            <button onclick="showFeatureDetail('Group Page')">More Info</button>
+        </div>
+        <div class="feature" id="Nursing Page">
+            <h3>NURSING PAGE</h3>
+            <button onclick="showFeatureDetail('Nursing Page')">More Info</button>
+        </div>
+    </section>
+    <button id="logoutBtn" onclick="logout()">Logout</button>
+    <!-- Footer Section -->
+    <footer id="contact">
+        <p>Contact us at <a href="mailto:thecodecrafters@example.com">thecodecrafters@example.com</a></p>
+        <p>&copy; 2024 Our Homepage. All rights reserved.</p>
+    </footer>
+
+    <style>
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    line-height: 1.6;
+    background-color:  #ca77eb;
+    color: #333;
+    padding-top: 130px; /* Adjust this padding based on the height of the header */
+}
+
+/* Header */
+header {
+    background-color:  #ca77eb;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;  /* Fixes the header at the top */
+    top: 0;           /* Positions it at the top of the page */
+    left: 0;          /* Ensures it's aligned to the left */
+    width: 100%;      /* Ensures it takes up the full width */
+    z-index: 1000;    /* Keeps the header above other content */
+}
+
+header nav ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Features Section */
+#features {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.feature {
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #e74390;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color:  #e74390;
+}
+
+/* Centered Logout Button */
+button#logoutBtn {
+    display: block;
+    width: 130px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+button#logoutBtn:hover {
+    background-color: #e74390;
+}
+
+/* Footer */
+footer { 
+    background-color: #ca77eb;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+    </style>
+
+<script>
+    // Function to show detailed information about each feature
+    function showFeatureDetail(featureId) {
+        const feature = document.getElementById(featureId);
+        alert('You clicked on ' + featureId + '. More details coming soon!');
+        if (feature) {
+            feature.innerHTML += '<p><strong>Details:</strong> This is more information about ' + featureId + '.</p>';
+        }
+    }
+
+    // Function to handle logout
+    function logout() {
+        sessionStorage.clear(); // Clears session storage
+        localStorage.clear();  // Clears local storage
+        window.location.href = "index.html"; // Redirect to login page
+    }
+
+    // Example of animating the page load with a fade-in effect
+    window.onload = function() {
+        document.body.style.opacity = 0;
+        setTimeout(function() {
+            document.body.style.transition = "opacity 1s";
+            document.body.style.opacity = 1;
+        }, 500);
+    }
+</script>
+</body>
+</html>
